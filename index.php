@@ -25,7 +25,9 @@ include('php/dbconnection.php');
   <link rel="stylesheet" href="assets/css/estiln.css">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="assets/js/funciones.js"></script>
+  
 </head>
 
 <body class="">
@@ -194,14 +196,16 @@ include('php/dbconnection.php');
                     <div id="slc-tipo">
                       <!-- <button class="btn btn-success btn-lg btn-block" name="tipo" value="herramienta">Herramientas</button>
                           <button class="btn btn-success btn-lg btn-block" name="tipo" value="material">Materiales</button> -->
-                      <label for="unidad">Selecciona una unidad:</label>
-                      <select name="tipo" id="tipo">
+                      <label for="unidad">Selecciona tipo de objeto a ingresar:</label>
+                      <select name="tipo" id="tipo" >
+                        <option value="nada">Ninguno</option>
                         <option value="Herramienta">Herramienta</option>
                         <option value="Material">Material</option>
                       </select>
                     </div>
+                    <hr>
                     <div id="form-h" >
-                      <p class="hint-text">Compra de herramienta</p>
+                      
                       <div class="form-group">
                         <div class="row">
                           <div class="col"><input type="text" class="form-control" name="fname" placeholder="Codigo"
@@ -211,31 +215,24 @@ include('php/dbconnection.php');
                         </div>
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" name="costo" placeholder="Ingrese costo"
-                          required='true' step='0.01'>
+                        <input type="number" class="form-control" name="costo" placeholder="Ingrese costo unitario"
+                          required='true' step='0.01' id="valorUnitario" >
                       </div>
                       <div class="form-group">
                         <input type="number" class="form-control" name="cantidad" placeholder="Ingrese cantidad"
-                          required='true'>
+                          required='true' id="cantidad">
                       </div>
-                      <div>
-                        <label for="unidad">Selecciona una unidad:</label>
-                        <select name="unidad" id="unidad">
-                          <option value="kg">kg</option>
-                          <option value="lb">lb</option>
-                          <option value="cm">cm</option>
-                          <option value="m">m</option>
-                        </select>
+                      <div class="form-group">
+                          <p>Total: <span id="valorTotal">0.00</span></p>
                       </div>
                       <div class="form-group">
                         <input type="text" class="form-control" name="fecha_actual"
                           value="<?php echo date('Y-m-d H:i:s'); ?>" readonly>
                       </div>
                     </div>
-
+<!-------------------------------------------------------------------------------------------------------------->
                     <div id="form-m">
-                      <p class="hint-text">Compra Material</p>
-                      <div class="form-group">
+                    <div class="form-group">
                         <div class="row">
                           <div class="col"><input type="text" class="form-control" name="fname" placeholder="Codigo"
                               required="true"></div>
@@ -244,21 +241,30 @@ include('php/dbconnection.php');
                         </div>
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" name="costo" placeholder="Ingrese costo"
-                          required='true' step='0.01'>
+                        <div class="row">
+                          <div class="col">
+                          <select name="tipo-medida" id="tipo-medida" >
+                        <option value="masa">Masa</option>
+                        <option value="area">Area</option>
+                        <option value="volumen">Volumen</option>
+                      </select>
+                          </div>
+                          <div class="col"><input type="text" class="form-control" name="fname" placeholder="Valor"
+                              required="true"></div>
+                          <div class="col"><input type="text" class="form-control" name="lname"
+                              placeholder="Unidad de medida" required="true"></div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" class="form-control" name="costo" placeholder="Ingrese costo unitario"
+                          required='true' step='0.01' id="valorUnitario" >
                       </div>
                       <div class="form-group">
                         <input type="number" class="form-control" name="cantidad" placeholder="Ingrese cantidad"
-                          required='true'>
+                          required='true' id="cantidad">
                       </div>
-                      <div>
-                        <label for="unidad">Selecciona una unidad:</label>
-                        <select name="unidad" id="unidad">
-                          <option value="kg">kg</option>
-                          <option value="lb">lb</option>
-                          <option value="cm">cm</option>
-                          <option value="m">m</option>
-                        </select>
+                      <div class="form-group">
+                          <p>Total: <span id="valorTotal">0.00</span></p>
                       </div>
                       <div class="form-group">
                         <input type="text" class="form-control" name="fecha_actual"
