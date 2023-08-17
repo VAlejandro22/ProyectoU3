@@ -44,27 +44,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $(document).ready(function() {
   // Función para calcular y actualizar el valor total
-  function calcularValorTotal() {
-    var valorUnitario = parseFloat($("#valorUnitario").val());
-    var cantidad = parseInt($("#cantidad").val());
+  function calcularValorTotal(valorUnitarioID, cantidadID, valorTotalID) {
+    var valorUnitario = parseFloat($(valorUnitarioID).val());
+    var cantidad = parseInt($(cantidadID).val());
 
     if (!isNaN(valorUnitario) && !isNaN(cantidad)) {
       var valorTotal = valorUnitario * cantidad;
-      $("#valorTotal").text(valorTotal.toFixed(2));
+      $(valorTotalID).text(valorTotal.toFixed(2));
     } else {
       var valorTotal = 0;
-      $("#valorTotal").text(valorTotal.toFixed(2));
+      $(valorTotalID).text(valorTotal.toFixed(2));
     }
   }
 
   // Llama a la función cuando se carga la página
-  calcularValorTotal();
+  calcularValorTotal("#valorUnitario", "#cantidad", "#valorTotal");
+  calcularValorTotal("#valorUnitarioM", "#cantidadM", "#valorTotalM");
 
   // Llama a la función cuando el valor unitario cambia
-  $("#valorUnitario").on("input", calcularValorTotal);
+  $("#valorUnitario, #valorUnitarioM").on("input", function() {
+    calcularValorTotal("#valorUnitario", "#cantidad", "#valorTotal");
+    calcularValorTotal("#valorUnitarioM", "#cantidadM", "#valorTotalM");
+  });
 
   // Llama a la función cuando la cantidad cambia
-  $("#cantidad").on("input", calcularValorTotal);
+  $("#cantidad, #cantidadM").on("input", function() {
+    calcularValorTotal("#valorUnitario", "#cantidad", "#valorTotal");
+    calcularValorTotal("#valorUnitarioM", "#cantidadM", "#valorTotalM");
+  });
 });
+
 
 

@@ -197,7 +197,7 @@ include('php/dbconnection.php');
                       <!-- <button class="btn btn-success btn-lg btn-block" name="tipo" value="herramienta">Herramientas</button>
                           <button class="btn btn-success btn-lg btn-block" name="tipo" value="material">Materiales</button> -->
                       <label for="unidad">Selecciona tipo de objeto a ingresar:</label>
-                      <select name="tipo" id="tipo" >
+                      <select class="form-control" name="tipo" id="tipo" >
                         <option value="nada">Ninguno</option>
                         <option value="Herramienta">Herramienta</option>
                         <option value="Material">Material</option>
@@ -208,25 +208,25 @@ include('php/dbconnection.php');
                       
                       <div class="form-group">
                         <div class="row">
-                          <div class="col"><input type="text" class="form-control" name="fname" placeholder="Codigo"
+                          <div class="col"><input type="text" class="form-control" name="CODH" placeholder="Codigo"
                               required="true"></div>
-                          <div class="col"><input type="text" class="form-control" name="lname"
+                          <div class="col"><input type="text" class="form-control" name="NOMH"
                               placeholder="Nombre Producto" required="true"></div>
                         </div>
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" name="costo" placeholder="Ingrese costo unitario"
+                        <input type="number" class="form-control" name="COSH" placeholder="Ingrese costo unitario"
                           required='true' step='0.01' id="valorUnitario" >
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" name="cantidad" placeholder="Ingrese cantidad"
+                        <input type="number" class="form-control" name="CANH" placeholder="Ingrese cantidad"
                           required='true' id="cantidad">
                       </div>
                       <div class="form-group">
                           <p>Total: <span id="valorTotal">0.00</span></p>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" name="fecha_actual"
+                        <input type="text" class="form-control" name="FEH"
                           value="<?php echo date('Y-m-d H:i:s'); ?>" readonly>
                       </div>
                     </div>
@@ -234,16 +234,16 @@ include('php/dbconnection.php');
                     <div id="form-m">
                     <div class="form-group">
                         <div class="row">
-                          <div class="col"><input type="text" class="form-control" name="fname" placeholder="Codigo"
+                          <div class="col"><input type="text" class="form-control" name="CODM" placeholder="Codigo"
                               required="true"></div>
-                          <div class="col"><input type="text" class="form-control" name="lname"
+                          <div class="col"><input type="text" class="form-control" name="NOMM"
                               placeholder="Nombre Producto" required="true"></div>
                         </div>
                       </div>
                       <div class="form-group">
                         <div class="row">
                           <div class="col">
-                          <select name="tipo-medida" id="tipo-medida" >
+                          <select class="form-control" name="tipo-medida" id="tipo-medida" >
                         <option value="masa">Masa</option>
                         <option value="area">Area</option>
                         <option value="volumen">Volumen</option>
@@ -256,18 +256,18 @@ include('php/dbconnection.php');
                         </div>
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" name="costo" placeholder="Ingrese costo unitario"
-                          required='true' step='0.01' id="valorUnitario" >
+                        <input type="number" class="form-control" name="COSM" placeholder="Ingrese costo unitario"
+                          required='true' step='0.01' id="valorUnitarioM" >
                       </div>
                       <div class="form-group">
-                        <input type="number" class="form-control" name="cantidad" placeholder="Ingrese cantidad"
-                          required='true' id="cantidad">
+                        <input type="number" class="form-control" name="CANM" placeholder="Ingrese cantidad"
+                          required='true' id="cantidadM">
                       </div>
                       <div class="form-group">
-                          <p>Total: <span id="valorTotal">0.00</span></p>
+                          <p>Total: <span id="valorTotalM">21.00</span></p>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" name="fecha_actual"
+                        <input type="text" class="form-control" name="FEM"
                           value="<?php echo date('Y-m-d H:i:s'); ?>" readonly>
                       </div>
                     </div>
