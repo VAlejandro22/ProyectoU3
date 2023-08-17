@@ -27,6 +27,7 @@ include('php/dbconnection.php');
   <link href="./assets/demo/demo.css" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="assets/js/funciones.js"></script>
+  <!-- <script src="assets/js/funciones.js"></script> -->
   
 </head>
 

@@ -44,34 +44,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $(document).ready(function() {
   // Función para calcular y actualizar el valor total
-  function calcularValorTotal(valorUnitarioID, cantidadID, valorTotalID) {
-    var valorUnitario = parseFloat($(valorUnitarioID).val());
-    var cantidad = parseInt($(cantidadID).val());
+  function calcularValorTotal() {
+    var valorUnitario = parseFloat($("#valorUnitario").val());
+    var cantidad = parseInt($("#cantidad").val());
 
     if (!isNaN(valorUnitario) && !isNaN(cantidad)) {
       var valorTotal = valorUnitario * cantidad;
-      $(valorTotalID).text(valorTotal.toFixed(2));
+      $("#valorTotal").text(valorTotal.toFixed(2));
     } else {
       var valorTotal = 0;
-      $(valorTotalID).text(valorTotal.toFixed(2));
+      $("#valorTotal").text(valorTotal.toFixed(2));
     }
   }
 
   // Llama a la función cuando se carga la página
-  calcularValorTotal("#valorUnitario", "#cantidad", "#valorTotal");
-  calcularValorTotal("#valorUnitarioM", "#cantidadM", "#valorTotalM");
+  calcularValorTotal();
 
   // Llama a la función cuando el valor unitario cambia
-  $("#valorUnitario, #valorUnitarioM").on("input", function() {
-    calcularValorTotal("#valorUnitario", "#cantidad", "#valorTotal");
-    calcularValorTotal("#valorUnitarioM", "#cantidadM", "#valorTotalM");
-  });
+  $("#valorUnitario").on("input", calcularValorTotal);
 
   // Llama a la función cuando la cantidad cambia
-  $("#cantidad, #cantidadM").on("input", function() {
-    calcularValorTotal("#valorUnitario", "#cantidad", "#valorTotal");
-    calcularValorTotal("#valorUnitarioM", "#cantidadM", "#valorTotalM");
-  });
+  $("#cantidad").on("input", calcularValorTotal);
+});
+
+
+$(document).ready(function() {
+  // Función para calcular y actualizar el valor total
+  function calcularValorTotalM() {
+    var valorUnitarioM = parseFloat($("#valorUnitarioM").val());
+    var cantidadM = parseInt($("#cantidadM").val());
+
+    if (!isNaN(valorUnitarioM) && !isNaN(cantidadM)) {
+      var valorTotalM = valorUnitarioM * cantidadM;
+      $("#valorTotalM").text(valorTotalM.toFixed(2));
+    } else {
+      var valorTotalM = 0;
+      $("#valorTotalM").text(valorTotalM.toFixed(2));
+    }
+  }
+
+  // Llama a la función cuando se carga la página
+  calcularValorTotalM();
+
+  // Llama a la función cuando el valor unitario cambia
+  $("#valorUnitarioM").on("input", calcularValorTotalM);
+
+  // Llama a la función cuando la cantidad cambia
+  $("#cantidadM").on("input", calcularValorTotalM);
 });
 
 
